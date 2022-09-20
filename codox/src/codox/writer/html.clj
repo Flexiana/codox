@@ -81,7 +81,7 @@
 
 (defn- fix-markdown-url [url]
   (if-not (absolute-url? url)
-    (str/replace url #"\.(md|markdown)$" ".html")
+    (str/replace url #"\.(md|markdown)(\#.*)?$" ".html$2")
     url))
 
 (defn- update-link-url [^ResolvedLink link f]
